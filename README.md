@@ -33,4 +33,3 @@ CI_CD Pipeline Automation/
 │
 ├── .gitignore
 └── README.md
-git remote add origin https://github.com/cybergir/CI-CD-Pipeline-Automation.git# CI-CD-Pipeline-Automation
