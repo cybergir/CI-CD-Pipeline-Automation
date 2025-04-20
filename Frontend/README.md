@@ -23,3 +23,18 @@ frontend/
 │   ├── App.css
 │   ├── index.jsx
 │   └── index.css
+
+
+Frontend/
+└── src/
+    ├── components/
+    │   ├── common/
+    │   │   ├── Header.jsx
+    │   │   ├── Sidebar.jsx
+    │   │   └── Footer.jsx
+    │   └── pos/
+    │       ├── Cart.jsx
+    │       ├── ProductList.jsx
+    │       └── PaymentPanel.jsx
+    └── hooks/
+        └── useProducts.jsx

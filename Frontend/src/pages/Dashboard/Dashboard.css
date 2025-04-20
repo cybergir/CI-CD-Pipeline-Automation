@@ -1,0 +1,75 @@
+.dashboard-container {
+    padding: 24px;
+  }
+  
+  .dashboard-title {
+    color: #2c3e50;
+    margin-bottom: 32px !important;
+    font-weight: 600 !important;
+  }
+  
+  .metrics-grid {
+    margin-bottom: 32px;
+  }
+  
+  .metric-card {
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px !important;
+    transition: transform 0.3s ease;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  
+  .metric-icon {
+    color: #3498db;
+    margin-bottom: 16px;
+  }
+  
+  .metric-title {
+    color: #7f8c8d;
+    margin-bottom: 8px !important;
+  }
+  
+  .metric-value {
+    color: #2c3e50;
+    font-weight: 700 !important;
+  }
+  
+  .recent-activity {
+    padding: 24px;
+    border-radius: 12px !important;
+  }
+  
+  .section-title {
+    color: #2c3e50;
+    margin-bottom: 16px !important;
+    font-weight: 600 !important;
+  }
+  
+  .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .activity-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .dashboard-container {
+      padding: 16px;
+    }
+    
+    .metric-card {
+      padding: 16px;
+    }
+  }

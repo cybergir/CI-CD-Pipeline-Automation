@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout.jsx';
-import PointOfSale from './pages/Sales/PointOfSale.jsx';
-import Products from './pages/Products/Products.jsx';
-import Dashboard from './pages/Dashboard/Dashboard.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PointOfSale from "./pages/Sales/PointOfSale.jsx";
+import Products from "./pages/Products/Products.jsx";
+import Dashboard from "./pages/Dashboard/Dashboard.jsx";
+import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -14,8 +14,8 @@ const App = () => {
           <Route path="/products" element={<Products />} />
         </Routes>
       </Layout>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
