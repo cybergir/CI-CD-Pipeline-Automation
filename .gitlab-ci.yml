@@ -1,0 +1,107 @@
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+variables:
+  # Python environment variables
+  VENV_PATH: "$CI_PROJECT_DIR/backend/venv"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  
+  # Node environment variables
+  NODE_ENV: production
+
+cache:
+  paths:
+    - backend/.cache/pip
+    - frontend/node_modules/
+
+# Backend: Install dependencies
+install_backend:
+  stage: install
+  image: python:3.11
+  script:
+    - python -m venv $VENV_PATH
+    - source $VENV_PATH/bin/activate
+    - pip install --upgrade pip
+    - pip install -r backend/requirements.txt
+  artifacts:
+    paths:
+      - backend/venv/
+
+# Frontend: Install dependencies
+install_frontend:
+  stage: install
+  image: node:18
+  script:
+    - cd frontend
+    - npm ci
+  artifacts:
+    paths:
+      - frontend/node_modules/
+
+# Backend: Run tests
+test_backend:
+  stage: test
+  image: python:3.11
+  dependencies:
+    - install_backend
+  script:
+    - source $VENV_PATH/bin/activate
+    - pip install pytest
+    - pytest backend/tests/
+  artifacts:
+    when: always
+    reports:
+      junit: backend/tests/test-results.xml
+
+# Frontend: Run tests
+test_frontend:
+  stage: test
+  image: node:18
+  dependencies:
+    - install_frontend
+  script:
+    - cd frontend
+    - npm test -- --watchAll=false --ci
+  artifacts:
+    when: always
+    reports:
+      junit: frontend/test-results.xml
+
+# Backend: Build Docker image
+build_backend:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t myapp-backend:latest backend/
+  only:
+    - main
+
+# Frontend: Build React app
+build_frontend:
+  stage: build
+  image: node:18
+  dependencies:
+    - install_frontend
+  script:
+    - cd frontend
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/build/
+  only:
+    - main
+
+# Deploy stage (example, adjust to your deployment)
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploy your backend and frontend here"
+    # Example: push Docker image, upload frontend build, etc.
+  only:
+    - main

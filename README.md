@@ -1,25 +1,35 @@
-frontend/
-├── src/
-│   ├── assets/            # Images, icons, fonts
-│   ├── components/        # Reusable UI components
-│   │   ├── common/       # Buttons, inputs, modals
-│   │   ├── layout/       # Header, sidebar, footer
-│   │   ├── pos/          # POS-specific components
-│   │   └── ui/          # Generic UI elements
-│   ├── pages/            # Main page components
-│   │   ├── Dashboard/
-│   │   ├── Products/
-│   │   ├── Sales/
-│   │   ├── Customers/
-│   │   ├── Inventory/
-│   │   └── Reports/
-│   ├── services/         # API services
-│   ├── store/            # State management (Redux, etc.)
-│   ├── utils/            # Helper functions
-│   ├── App.js
-│   ├── App.css
-│   ├── index.js
-│   └── index.css
-├── public/
-├── package.json
+CI_CD Pipeline Automation/
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── routes.py
+│   │   ├── config.py
+│   │   ├── extensions.py
+│   │   └── utils.py
+│   ├── migrations/
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_models.py
+│   │   └── test_routes.py
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── run.py
+│   └── README.md
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Pages/
+│   │   │   └── Products/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── ...
+│   ├── public/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
+│
+├── .gitignore
 └── README.md
