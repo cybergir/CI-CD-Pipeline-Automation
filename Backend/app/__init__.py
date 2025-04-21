@@ -1,22 +1,20 @@
 from flask import Flask
-from .config import Config
-from .extensions import db
-from .routes import api
+from .extensions import db, ma, jwt
+from .routes import api, main_bp  # import both the API and blueprint
 
 def create_app():
-    """
-    Application factory function.
-    Creates and configures the Flask app instance.
-    """
     app = Flask(__name__)
+    app.config.from_object('app.config.Config')
 
-    # Load configuration from Config class
-    app.config.from_object(Config)
-
-    # Initialize Flask extensions (e.g., SQLAlchemy)
+    # Initialize extensions
     db.init_app(app)
+    ma.init_app(app)
+    jwt.init_app(app)
 
-    # Register API routes (Flask-RESTful)
+    # Register API routes
     api.init_app(app)
+
+    # Register blueprint for root and other non-API routes
+    app.register_blueprint(main_bp)
 
     return app
