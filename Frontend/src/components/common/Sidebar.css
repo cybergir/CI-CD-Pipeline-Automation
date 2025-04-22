@@ -1,0 +1,56 @@
+
+.sidebar {
+    width: 220px;
+    height: 100vh; /* full viewport height */
+    position: fixed; /* fixed to the left */
+    top: 40px;
+    left: 0;
+    background-color: #34495e;
+    color: white;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Optional: add a subtle shadow */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* below header if header is fixed */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .sidebar nav {
+    flex-grow: 1; /* take available vertical space */
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    display: block;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar a:hover,
+  .sidebar a.active {
+    background-color: #1abc9c;
+    color: #2c3e50;
+  }
+  
+  /* Optional: style for icons if you add any */
+  .sidebar a .icon {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  

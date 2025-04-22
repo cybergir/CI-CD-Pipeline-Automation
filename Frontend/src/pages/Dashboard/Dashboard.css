@@ -1,5 +1,6 @@
 .dashboard-container {
     padding: 24px;
+    padding-left: 250px;
   }
   
   .dashboard-title {
@@ -22,6 +23,7 @@
   .metric-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    justify-content: center;
   }
   
   .metric-icon {

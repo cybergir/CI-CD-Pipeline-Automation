@@ -1,0 +1,38 @@
+/* src/components/layout/Layout.css */
+
+.app-layout {
+    display: flex;           /* Use flexbox for overall layout */
+    min-height: 100vh;      /* Full viewport height */
+  }
+  
+  .main-content {
+    display: flex;           /* Use flexbox for header/sidebar/content */
+    flex: 1;                /* Take remaining space */
+  }
+  
+  .sidebar {
+    width: 220px;            /* Fixed sidebar width */
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .content-area {
+    flex: 1;                /* Content takes remaining space */
+    padding: 20px;          /* Add some padding */
+    background-color: #f4f4f4; /* Light background */
+  }
+  
+  header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  

@@ -15,100 +15,76 @@ import {
   Receipt,
   LocalAtm
 } from '@mui/icons-material';
+import './PaymentPanel.css'; // Optional CSS import
 
 const PaymentPanel = ({ cart = [] }) => {
-  // Calculate totals
+  // Calculations
   const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
-  const taxRate = 0.08; // 8% tax
+  const taxRate = 0.08;
   const tax = subtotal * taxRate;
   const total = subtotal + tax;
 
-  // Payment methods
+  // Payment handlers
   const handlePayment = (method) => {
-    alert(`Processing ${method} payment for $${total.toFixed(2)}`);
-    // Replace with actual payment processing logic
+    console.log(`Processing ${method} payment: $${total.toFixed(2)}`);
+    /* Payment gateway integration would go here */
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+    <Paper elevation={3} className="payment-panel">
+      <Typography variant="h6" className="panel-title">
         Order Summary
       </Typography>
 
-      {/* Itemized list */}
-      <List dense>
+      <List dense className="item-list">
         {cart.map((item, index) => (
-          <ListItem key={index}>
+          <ListItem key={index} className="cart-item">
             <ListItemText 
               primary={`${item.quantity || 1}x ${item.name}`}
               secondary={`$${(item.price * (item.quantity || 1)).toFixed(2)}`}
+              className="item-text"
             />
           </ListItem>
         ))}
       </List>
 
-      <Divider sx={{ my: 2 }} />
+      <Divider className="summary-divider" />
 
-      {/* Totals */}
-      <Box sx={{ mb: 3 }}>
-        <Box display="flex" justifyContent="space-between">
+      <Box className="totals-container">
+        <Box className="total-row">
           <Typography>Subtotal:</Typography>
           <Typography>${subtotal.toFixed(2)}</Typography>
         </Box>
-        <Box display="flex" justifyContent="space-between">
-          <Typography>Tax ({taxRate * 100}%):</Typography>
+        <Box className="total-row">
+          <Typography>Tax (8%):</Typography>
           <Typography>${tax.toFixed(2)}</Typography>
         </Box>
-        <Box display="flex" justifyContent="space-between" sx={{ mt: 1, fontWeight: 'bold' }}>
+        <Box className="total-row grand-total">
           <Typography variant="subtitle1">Total:</Typography>
           <Typography variant="subtitle1">${total.toFixed(2)}</Typography>
         </Box>
       </Box>
 
-      {/* Payment Buttons */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Box className="payment-buttons">
         <Button
           variant="contained"
-          size="large"
           startIcon={<PointOfSale />}
+          className="payment-button cash"
           onClick={() => handlePayment('cash')}
-          sx={{ py: 1.5, backgroundColor: '#4caf50', '&:hover': { backgroundColor: '#388e3c' } }}
         >
           Cash Payment
         </Button>
-        
         <Button
           variant="contained"
-          size="large"
           startIcon={<CreditCard />}
+          className="payment-button credit"
           onClick={() => handlePayment('credit')}
-          sx={{ py: 1.5, backgroundColor: '#1976d2' }}
         >
           Credit Card
-        </Button>
-        
-        <Button
-          variant="outlined"
-          size="large"
-          startIcon={<LocalAtm />}
-          onClick={() => handlePayment('split')}
-          sx={{ py: 1.5 }}
-        >
-          Split Payment
-        </Button>
-        
-        <Button
-          variant="text"
-          size="small"
-          startIcon={<Receipt />}
-          sx={{ color: 'text.secondary' }}
-        >
-          Print Receipt
         </Button>
       </Box>
     </Paper>
   );
 };
 
-// Must have this default export
 export default PaymentPanel;

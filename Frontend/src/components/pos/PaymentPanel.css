@@ -1,0 +1,79 @@
+/* Animation Effects */
+.payment-panel {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  
+  .payment-panel:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+  
+  /* Typography Enhancements */
+  .panel-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Item List Styling */
+  .item-list {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  
+  .cart-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  /* Totals Section */
+  .totals-container {
+    margin: 20px 0;
+  }
+  
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .grand-total {
+    margin-top: 12px;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  
+  /* Button Styling */
+  .payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .payment-button {
+    padding: 12px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    border-radius: 8px !important;
+  }
+  
+  .payment-button.cash {
+    background-color: #38a169 !important;
+  }
+  
+  .payment-button.credit {
+    background-color: #3182ce !important;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .payment-panel {
+      padding: 16px;
+    }
+    
+    .payment-buttons {
+      flex-direction: row;
+    }
+  }
