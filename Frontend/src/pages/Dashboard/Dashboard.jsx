@@ -20,7 +20,7 @@ const Dashboard = () => {
   return (
     <Box className="dashboard-container">
       <Typography variant="h4" gutterBottom className="dashboard-title">
-        POS Dashboard
+        Dashboard
       </Typography>
       
       {/* Metrics Cards */}
