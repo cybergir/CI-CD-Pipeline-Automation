@@ -1,9 +1,11 @@
 from flask import Flask
 from .extensions import db, ma, jwt
-from .routes import api, main_bp  # import both the API and blueprint
+from .routes import api, main_bp
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
+    CORS(app) # Enable CORS for all routes
     app.config.from_object('app.config.Config')
 
     # Initialize extensions
