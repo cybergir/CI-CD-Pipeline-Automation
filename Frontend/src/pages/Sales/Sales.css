@@ -1,0 +1,51 @@
+.sales-container {
+    padding: 24px;
+  }
+  
+  .sales-title {
+    margin-bottom: 24px !important;
+    color: #2c3e50;
+    font-weight: 600 !important;
+  }
+  
+  .filters-paper {
+    margin-bottom: 24px;
+    border-radius: 8px !important;
+  }
+  
+  .sales-table {
+    border-radius: 8px !important;
+    overflow: hidden;
+  }
+  
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .status-badge.completed {
+    background-color: #e6f7e6;
+    color: #2e7d32;
+  }
+  
+  .status-badge.refunded {
+    background-color: #fff3e0;
+    color: #e65100;
+  }
+  
+  .status-badge.processing {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  @media (max-width: 768px) {
+    .sales-container {
+      padding: 16px;
+    }
+    
+    .filters-paper {
+      padding: 12px !important;
+    }
+  }
