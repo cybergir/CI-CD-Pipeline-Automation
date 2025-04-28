@@ -3,6 +3,7 @@ import ProductList from '../../components/pos/ProductList.jsx';
 import Cart from '../../components/pos/Cart.jsx';
 import PaymentPanel from '../../components/pos/PaymentPanel.jsx';
 import useProducts from '../../hooks/useProducts.jsx';
+import './PointOfSale.css';
 
 const PointOfSale = () => {
   const [cart, setCart] = useState([]);
